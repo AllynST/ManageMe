@@ -1,4 +1,6 @@
-:host{
-    
 
+@import '../../../styles.scss';
+
+:host{
+ @include hostComponentTemplate
 }

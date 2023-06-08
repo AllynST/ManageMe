@@ -1,11 +1,14 @@
 export interface Project {
+   id:number,
    Name:string,
    Desc:string,
-   Functionalities:Functionality[],
-   User:User
+   functionalities?:Functionality[],
+   createdBy:number
+   MembersID:number[]
 }
 
 export interface User{
+  id:number
   Login:string,
   Password:string,
   Name:string,
@@ -14,6 +17,7 @@ export interface User{
 }
 
 export interface Functionality{
+  id:number,
   Name:string,
   Desc:string,
   Priority:Priority,
@@ -25,6 +29,7 @@ export interface Functionality{
 }
 
 export interface Task{
+  id:number,
   Name:string,
   Desc:string,
   Priority:Priority,
@@ -38,7 +43,6 @@ export interface Task{
 
 }
 
-let string = 'Admin'
 
 
 

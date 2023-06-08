@@ -1,0 +1,62 @@
+<section class="w-full flex h-full m-1 p-2 py-2 flex-wrap relative">
+    <h1 class="m-5 w-full text-4xl text-blue">Your Projects</h1>
+    
+
+   
+    <div class="w-11/12 h-3/4 flex flex-wrap rounded-xl gap-5 text-white">
+        
+        <div *ngFor="let project of projects" class="w-2/4 flex flex-wrap gap-5 p-5 bg-blue h-fit rounded-xl" style="width:300px">
+            <div>
+                <h2 class="w-full text-2xl font-semibold">{{project.Name}}</h2>
+                <p class="opacity-80">Created by: John Doe</p>
+            </div>
+            
+            <button class="bg-white p-2 text-blue rounded w-full">Go to project</button>
+
+            <div class="w-full flex justify-between">
+                <div class="flex w-1/4 items-center justify-center gap-2">
+                    <img src="../../../assets/user.png" class="w-5 h-5 bg" alt=""/>
+                    <div>{{project.MembersID.length}}</div>
+                </div>
+                <div class="flex w-1/4 items-center justify-center gap-2">
+                    <img src="../../../assets/user.png" class="w-5 h-5 bg" alt=""/>
+                    <div>5</div>
+                </div>
+                <div class="flex w-1/4 items-center justify-center gap-2">
+                    <img src="../../../assets/user.png" class="w-5 h-5 bg" alt=""/>
+                    <div>5</div>
+                </div>
+                <div class="flex w-1/4 items-center justify-center gap-2">
+                    <img src="../../../assets/user.png" class="w-5 h-5 bg" alt=""/>
+                    <div>5</div>
+                </div>
+            </div>
+            
+        </div>
+    
+        
+
+
+    </div>
+    
+
+    <div class="absolute bottom-5 right-10 flex items-center">
+        <p class="text-2xl px-3">Add project</p>
+        <button class=" w-5 h-5 flex justify-center items-center text-4xl bg-blue rounded text-white p-5"> +</button>
+    </div>
+
+     <!-- <div ngIf class="w-full h-2/4 flex justify-center items-center">
+        
+        <div *ngIf="projects === undefined" class="w-fit flex flex-wrap p-5 h-48 text-black text-lg">
+            <p class="mx-3 text-2xl m-5">Looks like you haven't added any projects yet</p>
+            <button class="bg-blue p-4 rounded text-white w-full m-5">Add Project</button>
+        </div>
+    </div> -->
+ 
+    <div *ngIf="formPopUp" class="absolute w-full h-full flex justify-center items-center">
+        <app-add-project-form></app-add-project-form>
+    </div>
+    
+</section>
+
+
