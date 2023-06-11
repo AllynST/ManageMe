@@ -1,0 +1,10 @@
+
+<p>{{(user$ | async)!.Name!}}</p>
+<p>{{(user$ | async)!.Surname!}}</p>
+<p>{{(user$ | async)!.Login!}}</p>
+<p>{{(user$ | async)!.Password!}}</p>
+<p>{{(user$ | async)!.Email!}}</p>
+<p>{{(user$ | async)!.Login!}}</p>
+<p>{{(user$ | async)!.photoSrc!}}</p>
+<img style="display:block" id="test" [src]="(user$ | async)!.photoSrc!" />
+<!-- <img style="display:block" id="test" src="{{require((user$ | async)!.photoSrc!)}}" /> -->

@@ -1,1 +1,8 @@
 <p>project-members works!</p>
+<div *ngFor="let user of users$ | async">
+
+    <h2 class="text-2xl">
+        {{user!.Name!}}
+    </h2>
+
+</div>

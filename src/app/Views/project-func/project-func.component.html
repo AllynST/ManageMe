@@ -1,0 +1,43 @@
+
+
+{{(project$ | async)!.Name}}
+<div class="flex gap-2 flex-col overflow-scroll">
+    <div *ngFor="let func of (project$ | async)!.functionalities">
+    
+        <mat-accordion>
+            <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <mat-icon class="{{getFlagColor(func.Priority)}}">flag</mat-icon>
+                {{func.Name}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{func.Desc}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="flex gap-2 flex-col">
+            <div *ngFor="let task of func.Tasks">
+                <mat-accordion>
+                    <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <mat-icon class="{{getFlagColor(task.Priority)}}">flag</mat-icon>
+                        {{task.Name}}
+                        </mat-panel-title>
+                        <mat-panel-description>
+                        {{task.Desc}}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <p>test</p>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+            </div>
+            <button>Add task</button>
+            </mat-expansion-panel>
+        </mat-accordion>
+    
+    
+    </div>
+</div>
+<button>Add functionality</button>

@@ -1,5 +1,43 @@
 <section class="container mx-auto">
-setset
+
+    <h1 class="m-5 p-5 w-full text-4xl text-blue">{{(project$ | async)!.Name}}</h1>
+
+
+    <div class="upperBar flex gap-5 justify-center">
+
+        <div class="bg-blue w-fit h-fit p-5 text-white rounded-lg flex-col items-center">
+            <h2 class="text-1xl">Time</h2>
+            <p class="flex justify-center text-2xl">13days 4 months 1 year</p>
+        </div>
+
+        <div class="bg-blue w-fit h-fit p-5 text-white rounded-lg flex-col items-center">
+            <h2 class="text-1xl">Functionalities</h2>
+            <p class="flex justify-center text-2xl">{{(project$ | async)!.functionalities!.length}}</p>
+        </div>
+        <div class="bg-blue w-fit h-fit p-5 text-white rounded-lg flex-col items-center">
+            <h2 class="text-1xl">Tasks</h2>
+            <p class="flex justify-center text-2xl">{{(project$ | async)!.functionalities!.length!}}</p>
+        </div>
+        <div class="bg-blue w-fit h-fit p-5 text-white rounded-lg flex-col items-center">
+            <h2 class="text-1xl">Members</h2>
+            <p class="flex justify-center text-2xl">{{(project$ | async)!.MembersID!.length!}}</p>
+        </div>
+
+        <div class="bg-green w-fit h-fit p-5 text-white rounded-lg flex-col items-center">
+            <h2 class="text-1xl">Finished</h2>
+            <p class="flex justify-center text-2xl">{{(project$ | async)!.MembersID.length!}}</p>
+        </div>
+
+        <div class="bg-yellow w-fit h-fit p-5 text-blue rounded-lg flex-col items-center">
+            <h2 class="text-1xl">In progres</h2>
+            <p class="flex justify-center text-2xl">{{(project$ | async)!.MembersID.length!}}</p>
+        </div>
+
+        <div class="bg-orange w-fit h-fit p-5 text-white rounded-lg flex-col items-center">
+            <h2 class="text-1xl">Planned</h2>
+            <p class="flex justify-center text-2xl">{{(project$ | async)!.MembersID.length!}}</p>
+        </div>
+    </div>
 
 
 </section>

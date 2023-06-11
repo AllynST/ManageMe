@@ -3,3 +3,14 @@
 :host{
  @include hostComponentTemplate
 }
+
+.upperBar{
+    width:100%;
+
+    >div{
+        width:150px;
+    }
+    h2{
+        text-align: center;
+    }
+}
