@@ -15,7 +15,10 @@
         
         <div *ngFor="let project of projects$ | async" class="w-2/4 flex flex-wrap gap-5 p-5 bg-blue h-fit rounded-xl" style="width:300px">
             <div>
-                <h2 class="w-full text-2xl font-semibold">{{project.Name}}</h2>
+                <h2 class="w-full text-2xl font-semibold flex items-center gap-2">
+                    {{project.Name}}
+                    <mat-icon id="project.id" class="text-red w-5" (click)="deleteHandler(project.id)">delete</mat-icon>
+                </h2>
                 <p class="opacity-80">Created by: John Doe</p>
             </div>
             

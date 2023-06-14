@@ -16,7 +16,7 @@ export class AccountComponent {
   protected user$!: Observable<User | undefined> 
 
   id!:number
-  public image:any;
+
   
 
   constructor(private service:UserService,private route : ActivatedRoute){

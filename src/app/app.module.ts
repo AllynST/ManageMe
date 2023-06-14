@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatInputModule} from '@angular/material/input';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -9,10 +9,8 @@ import { HomeScreenComponent } from './Views/home-screen/home-screen.component';
 import { YourProjectsViewComponent } from './Views/your-projects-view/your-projects-view.component';
 import { ProjectHomeComponent } from './Views/project-home/project-home.component';
 import { ProjectMembersComponent } from './Views/project-members/project-members.component';
-import { NotificationsComponent } from './Views/notifications/notifications.component';
 import { AuditLogComponent } from './Views/audit-log/audit-log.component';
 import { ArchiveComponent } from './Views/archive/archive.component';
-import { DashboardComponent } from './Views/dashboard/dashboard.component';
 import { AddProjectFormComponent } from './components/formPopUps/add-project-form/add-project-form.component';
 import { AddTaskFormComponent } from './components/formPopUps/add-task-form/add-task-form.component';
 import { AddFunctionalityFormComponent } from './components/formPopUps/add-functionality-form/add-functionality-form.component';
@@ -24,6 +22,16 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { KanbanBoardComponent } from './views/kanban-board/kanban-board.component';
 import { ProjectsComponent } from './views/projects/projects.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ProjectService } from './Services/project-service.service';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { ProjectFuncComponent } from './views/project-func/project-func.component';
+import { AccountComponent } from './views/account/account.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -34,10 +42,8 @@ import { ProjectsComponent } from './views/projects/projects.component';
     YourProjectsViewComponent,
     ProjectHomeComponent,
     ProjectMembersComponent,
-    NotificationsComponent,
     AuditLogComponent,
     ArchiveComponent,
-    DashboardComponent,
     AddProjectFormComponent,
     AddTaskFormComponent,
     AddFunctionalityFormComponent,
@@ -45,6 +51,8 @@ import { ProjectsComponent } from './views/projects/projects.component';
     LoginFormComponent,
     KanbanBoardComponent,
     ProjectsComponent,
+    ProjectFuncComponent,
+    AccountComponent,
   
   ],
   imports: [
@@ -52,9 +60,17 @@ import { ProjectsComponent } from './views/projects/projects.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSelectModule,
+    MatIconModule,
     MatExpansionModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+ 
   ],
-  providers: [],
+  providers: [ProjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,22 @@
+<div *ngIf="formPopUpFunc" class="popUpBackground flex justify-center items-center">
+    <div class="bg-blue p-10 relative rounded-lg">
+        <button class="absolute top-0 right-0 z-20" (click)="funcPopUpSwitch()" mat-icon-button>
+            <mat-icon class="text-white" >close</mat-icon>
+        </button>          
+    <app-add-functionality-form></app-add-functionality-form>
+    </div>
+</div>
 
+<div *ngIf="formPopUpTask" class="popUpBackground flex justify-center items-center">
+    <div class="bg-blue p-10 relative rounded-lg">
+        <button class="absolute top-0 right-0 z-20" (click)="taskPopUpSwitch(0)" mat-icon-button>
+            <mat-icon class="text-white" >close</mat-icon>
+        </button>          
+    <app-add-task-form [targetFunc]="selectedFunc"></app-add-task-form>
+    </div>
+</div>
 
-{{(project$ | async)!.Name}}
-<div class="flex gap-2 flex-col overflow-scroll">
+<div class="flex gap-2 flex-col">
     <div *ngFor="let func of (project$ | async)!.functionalities">
     
         <mat-accordion>
@@ -12,7 +27,8 @@
                 {{func.Name}}
                 </mat-panel-title>
                 <mat-panel-description>
-                    {{func.Desc}}
+                  
+                    added by: {{getUserData(func.Owner)}}
                 </mat-panel-description>
             </mat-expansion-panel-header>
             <div class="flex gap-2 flex-col">
@@ -24,20 +40,32 @@
                             <mat-icon class="{{getFlagColor(task.Priority)}}">flag</mat-icon>
                         {{task.Name}}
                         </mat-panel-title>
-                        <mat-panel-description>
-                        {{task.Desc}}
+                        <mat-panel-description>                            
+                            added by: {{getUserData(task.OwnerID)}}
                         </mat-panel-description>
                     </mat-expansion-panel-header>
-                    <p>test</p>
+                        <div class="flex">
+                            <div class=" w-1/2">
+                                <p>State: {{task.State}}</p>
+                                <h2 class="text-2xl">Description</h2>
+                                <p>{{task.Desc}}</p>
+                                
+                            </div>
+                            <div class=" w-1/2">                                
+                                <p>Added date: {{task.AddedDate}}</p>
+                                <p>Start date: {{task.StartDate}}</p>
+                                <p>Finish date: {{task.FinishDate}}</p>
+                            </div>
+                        </div>
                     </mat-expansion-panel>
                 </mat-accordion>
             </div>
             </div>
-            <button>Add task</button>
+            <button (click)="taskPopUpSwitch(func.id)" class="p-2 m-2 bg-blue text-white rounded">Add task</button>
             </mat-expansion-panel>
         </mat-accordion>
     
     
     </div>
 </div>
-<button>Add functionality</button>
+<button (click)="funcPopUpSwitch()" class="p-2 m-2 bg-blue text-white rounded">Add functionality</button>

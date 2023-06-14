@@ -13,8 +13,10 @@ export class AuthService {
       id:0,
       Login:"AllynST",
       Password:"LosowyStringZnaków123@#",
+      Email:"sampleEmail@XD.com",
       Name:"Allan",
       Surname:"Strawpool",
+      photoSrc:"genericphoto.jpg",
       Permission: Permissions.admin
     }
   )
@@ -25,6 +27,12 @@ export class AuthService {
 
   getCurrentUser(){
     return this.currentUser$
+  }
+
+  getCurrentUserID():number{
+    let targetID:number;
+    this.currentUser$.subscribe((val) =>{targetID = val.id})
+    return targetID!;
   }
 
 

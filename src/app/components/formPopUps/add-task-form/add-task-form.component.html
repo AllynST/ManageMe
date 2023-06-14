@@ -1,1 +1,37 @@
-<p>add-task-form works!</p>
+
+<form class="flex flex-col" [formGroup] = "taskForm">                                            
+               
+        
+    <mat-form-field class="example-full-width">
+        <mat-label>Task name</mat-label>
+        <input formControlName="Name" for="Name" type="text" matInput/>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Description</mat-label>
+        <input formControlName="Desc" for="Desc" type="text" matInput/>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Priority</mat-label>
+        <mat-select formControlName="Priority" for="Priority">
+          <mat-option  *ngFor="let value of selectFields" [value]="value">
+           {{value}}
+          </mat-option>
+          
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Expected finish date</mat-label>
+        <input matInput formControlName="ExpTime" for="ExpTime" [matDatepicker]="picker">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    
+
+    
+    <button type="submit" (click)="formSubmit()" mat-raised-button>
+        Add task
+    </button>
+</form>

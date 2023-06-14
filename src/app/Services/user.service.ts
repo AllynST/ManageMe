@@ -1,22 +1,16 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { User, Permissions } from '../interfaces/dataModels';
+import { sampleUsers } from '../interfaces/sampleData';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private users : BehaviorSubject<User[]> = new BehaviorSubject<User[]>([
-    {
-      id:0,
-      Login:"AllynST",
-      Password:"LosowyStringZnaków123@#",
-      Name:"Allan",
-      Surname:"Strawpool",
-      Permission: Permissions.admin
-    }
-  ]);
+  private users : BehaviorSubject<User[]> = new BehaviorSubject<User[]>(
+    sampleUsers
+  );
 
   private users$ : Observable<User[]> = this.users.asObservable();
 
@@ -31,8 +25,15 @@ export class UserService {
     return this.users$;
   }
 
+  getUsersFromIds(membersIds:number[]){
+    return this.users$.pipe(
+      map((users:any) => users.filter((user:User) => membersIds.includes(user.id)))      
+    )
+   
+  }
 
-  getUser(userID:number){
+
+  getUser(userID:number):Observable<User>{
     return this.users$.pipe(
       map((users:any) => users.find((user:User) => userID === user.id))      
     )

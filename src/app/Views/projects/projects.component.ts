@@ -41,5 +41,10 @@ export class ProjectsComponent implements OnInit {
     //this.id = this.route.snapshot.paramMap.get('id')
   }
 
+  
+  deleteHandler(projectID:number){
+    this.projectService.deleteProject(projectID)
+  }
+
 
 }

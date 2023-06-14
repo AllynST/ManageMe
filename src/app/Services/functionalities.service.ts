@@ -11,7 +11,7 @@ export class FunctionalitiesService {
   }
 
   getFuncByUser(){
-
+    //NO
   }
 
   getProjectFunc(){
@@ -25,18 +25,22 @@ export class FunctionalitiesService {
   addFunc(){
 
   }
-
-  deleteFunc(){
+  
+  updateFunc(){
 
   }
 
-  updateFunc(){
+  deleteFunc(){
 
   }
 
   getTask(){
 
   }
+
+  addTask(){
+
+  } 
 
   updateTask(){
 

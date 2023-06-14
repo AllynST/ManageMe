@@ -11,9 +11,11 @@ export interface User{
   id:number
   Login:string,
   Password:string,
+  Email:string,
   Name:string,
   Surname:string,
-  Permission:Permisions
+  photoSrc:string,
+  Permission:Permissions
 }
 
 export interface Functionality{
@@ -21,10 +23,8 @@ export interface Functionality{
   Name:string,
   Desc:string,
   Priority:Priority,
-  Project:Project,
-  Owner:User,
+  Owner:number,
   State:State,
-
   Tasks:Task[]
 }
 
@@ -33,21 +33,20 @@ export interface Task{
   Name:string,
   Desc:string,
   Priority:Priority,
-  Func:any,
-  ExpTime:string,
+  ExpTime:Date,
   State:State,
   AddedDate:Date,
-  StartDate:Date|undefined,
-  FinishDate:Date|undefined
-  User:User
+  StartDate:Date|null,
+  FinishDate:Date|null,
+  OwnerID:number| null
+  AssignedID:number[]
 
 }
 
 
 
 
-enum Priority{
-
+export enum Priority{
   very_low,
   low,
   medium,
@@ -55,17 +54,16 @@ enum Priority{
   urgent
 }
 
-enum State{
+export enum State{
   todo,
   doing,
   done
 }
 
-enum Permisions{
+export enum Permissions{
    admin,
    devops,
    developer
 }
 
 
-let enumValue = Permisions

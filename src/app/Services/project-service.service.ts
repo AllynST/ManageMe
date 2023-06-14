@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject, filter, find, findIndex, first, map } from 'rxjs';
 import { Project } from '../interfaces/dataModels';
+import { sampleFunc } from '../interfaces/sampleData';
 
 
 @Injectable({
@@ -15,21 +16,27 @@ export class ProjectService {
       id:1,
       Name:'Mentor Me',
       Desc:'HackatonProject sheep your hack',
-      functionalities:[],
-      createdBy:112,
-      MembersID:[112],
+      functionalities:[...sampleFunc],
+      createdBy:0,
+      MembersID:[0],
+
+    },
+    {
+      id:2,
+      Name:'Microsoft',
+      Desc:'Oposite of Hugehard',
+      functionalities:[...sampleFunc],
+      createdBy:0,
+      MembersID:[0],
 
     }
   ]);
 
   private projects$ : Observable<Project[]> = this.projects.asObservable();
-
-  
+    
 
   constructor() {
   }
-
-
  
 
   getProjects(){
@@ -60,4 +67,7 @@ export class ProjectService {
     this.projects.next(temp)
     
   }
+
+  
+
 }
