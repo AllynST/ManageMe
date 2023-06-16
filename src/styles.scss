@@ -17,10 +17,11 @@ place-items: center;
     background-color: white;
     display:block;
     margin: 9px 0 0 5px;
-    padding: 0 0 0 0;
+    padding: 45px;
     width: 99%;
     height: 98%;
     border-radius: 15px;
+    overflow: scroll;
 
     animation: appear 0.4s forwards;
 }

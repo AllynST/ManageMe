@@ -31,8 +31,14 @@ import { AccountComponent } from './views/account/account.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-
-
+import { TaskInfoComponent } from './components/task-info/task-info.component';
+import {TextFieldModule} from '@angular/cdk/text-field';
+import { KanbanCardComponent } from './components/common/kanban-card/kanban-card.component';
+import { LoginComponent } from './views/login/login.component';
+import { RegisterComponent } from './views/register/register.component';
+import { ListFuncElemComponent } from './components/common/list-func-elem/list-func-elem.component';
+import { TaskListElemComponent } from './components/common/task-list-elem/task-list-elem.component';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +59,12 @@ import { MatNativeDateModule } from '@angular/material/core';
     ProjectsComponent,
     ProjectFuncComponent,
     AccountComponent,
+    TaskInfoComponent,
+    KanbanCardComponent,
+    LoginComponent,
+    RegisterComponent,
+    ListFuncElemComponent,
+    TaskListElemComponent,
   
   ],
   imports: [
@@ -67,7 +79,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatInputModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    TextFieldModule,
+    MatCardModule
  
   ],
   providers: [ProjectService],

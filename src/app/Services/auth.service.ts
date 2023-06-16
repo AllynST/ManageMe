@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { User } from '../interfaces/dataModels';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Permissions } from '../interfaces/dataModels';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  currentUser:BehaviorSubject<User> = new BehaviorSubject<User>(
+  currentUser:BehaviorSubject<User|null> = new BehaviorSubject<User|null>(
     {
       id:0,
       Login:"AllynST",
@@ -20,9 +21,9 @@ export class AuthService {
       Permission: Permissions.admin
     }
   )
-  currentUser$ = this.currentUser as Observable<User>
+  currentUser$ = this.currentUser as Observable<User|null>
 
-  constructor() {    
+  constructor(private userService:UserService) {    
   }
 
   getCurrentUser(){
@@ -31,21 +32,31 @@ export class AuthService {
 
   getCurrentUserID():number{
     let targetID:number;
-    this.currentUser$.subscribe((val) =>{targetID = val.id})
+    this.currentUser$.subscribe((val) =>{targetID = val!.id})
     return targetID!;
   }
 
 
-  login = () =>{
+  login = (login:string,password:string):boolean =>{
 
+    let outcome:boolean = false;
+    this.userService.getUsers().subscribe(val=>{
+      let targetUser = val.find((user:User)=>user.Login === login)
+      if(targetUser && targetUser.Password === password){
+        this.currentUser.next(targetUser)
+        outcome = true;      
+      }
+    })
+    return outcome;
   }  
 
-  register = () =>{
-
+  register = (user:User) =>{
+    console.log(user)
+    this.userService.addUser(user)
   }
 
   logout = () =>{
-
+    this.currentUser.next(null)
   }
 
 }

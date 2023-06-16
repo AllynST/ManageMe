@@ -45,8 +45,10 @@ export class UserService {
     this.users.next(temp)
   }
 
-  updateUser(){
-    //TODO :)
+  updateUser(userID:number,user:User){
+    let temp = this.users.getValue()
+    temp.splice(temp.findIndex((user:User)=> userID === user.id),1,user)
+    this.users.next(temp)
   }
   
   deleteUser(userID:number){

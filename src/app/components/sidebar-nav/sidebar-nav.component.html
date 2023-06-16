@@ -24,7 +24,7 @@
             
     
             <li class="py-3">
-                <a routerLink="/Account/0" class="w-12 flex text-white hover:scale-110 transition">
+                <a routerLink="/Account/{{(currentUser$|async)!.id ?? 0}}" class="w-12 flex text-white hover:scale-110 transition">
                     <img src="../../../assets/user.png" class="h-8 m-2" alt="Flowbite Logo">
                     <span class="self-center text-2xl ml-3 whitespace-nowrap">Account</span>
                 </a>

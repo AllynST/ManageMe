@@ -7,7 +7,7 @@ import { ProjectService } from './project-service.service';
 })
 export class GlobalStateService {
 
-  private currentProject : BehaviorSubject<number|null> = new BehaviorSubject<number|null>(null);    
+  private currentProject : BehaviorSubject<number|null> = new BehaviorSubject<number|null>(1);    
 
   private currentProject$ : Observable<number|null> = this.currentProject.asObservable()
 
@@ -19,13 +19,7 @@ export class GlobalStateService {
     return this.currentProject$;
   }
 
-  switchCurrent(targetNum:number){
-    
+  switchCurrent(targetNum:number){    
       this.currentProject.next(targetNum)
-  
-
-    
-
-    
   }
 }

@@ -1,0 +1,21 @@
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <mat-icon class="{{getFlagColor((func$|async)!.Priority)}}">flag</mat-icon>
+        {{(func$|async)!.Name}}
+        </mat-panel-title>
+        <mat-panel-description>
+          
+            added by: {{getUserData((func$|async)!.Owner)}}
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="flex gap-2 flex-col">
+    <div *ngFor="let taskID of (func$|async)!.Tasks">
+        <app-task-list-elem [taskID]="taskID"></app-task-list-elem>
+    </div>
+    </div>
+    <!-- <button (click)="taskPopUpSwitch(funcID)" class="p-2 m-2 bg-blue text-white rounded">Add task</button> -->
+    </mat-expansion-panel>
+</mat-accordion>
+

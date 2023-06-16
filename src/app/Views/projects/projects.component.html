@@ -33,17 +33,21 @@
                     <div>{{project.MembersID.length}}</div>
                 </div>
                 <div class="flex w-1/4 items-center justify-center gap-2">
-                    <img src="../../../assets/user.png" class="w-5 h-5 bg" alt=""/>
-                    <div>5</div>
+                    <mat-icon>task</mat-icon>
+                    <div>{{project!.functionalities!.length}}</div>
+                </div>
+                <div class="flex w-1/4 items-center justify-center gap-2">
+                    <mat-icon>work</mat-icon>
+                    <div>17</div>
+                </div>
+                <!-- <div class="flex w-1/4 items-center justify-center gap-2">
+                    <mat-icon>check</mat-icon>
+                    <div>{{project!.functionalities!.reduce((a,b) => a.tasks.length + b.tasks.lenght)}}</div>
                 </div>
                 <div class="flex w-1/4 items-center justify-center gap-2">
                     <img src="../../../assets/user.png" class="w-5 h-5 bg" alt=""/>
                     <div>5</div>
-                </div>
-                <div class="flex w-1/4 items-center justify-center gap-2">
-                    <img src="../../../assets/user.png" class="w-5 h-5 bg" alt=""/>
-                    <div>5</div>
-                </div>
+                </div> -->
             </div>
             
         </div>

@@ -9,11 +9,16 @@ import { KanbanBoardComponent } from './views/kanban-board/kanban-board.componen
 import { ProjectsComponent } from './views/projects/projects.component';
 import { ProjectFuncComponent } from './views/project-func/project-func.component';
 import { AccountComponent } from './views/account/account.component';
+import { LoginComponent } from './views/login/login.component';
+import { RegisterComponent } from './views/register/register.component';
 
 
 const routes: Routes = [
-  {path:'',component:HomeScreenComponent},
+  // {path:'',component:HomeScreenComponent},
+
   {path:'Home',component:HomeScreenComponent},
+  {path:'',component:LoginComponent},
+  {path:'Register',component:RegisterComponent},
   {path:'Projets',component:ProjectsComponent},
   {path:'ProjectFunc/:id',component:ProjectFuncComponent},
   {path:'Account/:id',component:AccountComponent},

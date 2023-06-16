@@ -17,8 +17,6 @@ export class ProjectFuncComponent {
 
   protected formPopUpFunc = false;
   protected formPopUpTask = false;
-
-  protected selectedFunc?:number;
   
 
   id!:number
@@ -37,42 +35,14 @@ export class ProjectFuncComponent {
   funcPopUpSwitch(){
     this.formPopUpFunc = !this.formPopUpFunc
   }
-  taskPopUpSwitch(targetFuncID:number){
-    this.selectedFunc = targetFuncID;
+  taskPopUpSwitch(){
     this.formPopUpTask = !this.formPopUpTask
   }
 
 
-  getUserData(userID:number|null):string{
+  
 
-    let output;
-    this.users$.pipe(
-      map((users) => users!.find((user:User) => userID === user.id)) 
-    ).subscribe(val=>{
-      output = val
-    })
-    return output != null ? (output as User).Login: ""
-    
-  }
-
-  getFlagColor(prio: Priority){
-    switch(prio){
-      case Priority.very_low:
-        return "text-white"
-
-      case Priority.low:
-        return"text-green"
-   
-      case Priority.medium:
-        return"text-blue"
-    
-      case Priority.high:
-        return"text-orange"
- 
-      case Priority.urgent:
-        return"text-red"
-
-    }
-  }
+  
+  
 
 }

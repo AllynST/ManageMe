@@ -1,0 +1,14 @@
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <mat-icon class="{{getFlagColor((task$ | async )!.Priority)}}">flag</mat-icon>
+        {{(task$ | async )!.Name}}
+        </mat-panel-title>
+        <mat-panel-description>                            
+            added by: {{getUserData((task$ | async )!.OwnerID)}}
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+       <app-task-info [task]="(task$ | async )!"></app-task-info>
+    </mat-expansion-panel>
+</mat-accordion>

@@ -23,6 +23,16 @@
     </mat-form-field>
 
     <mat-form-field>
+        <mat-label>Target Func</mat-label>
+        <mat-select formControlName="funcID" for="funcID">
+          <mat-option  *ngFor="let value of (currentProj$|async)!.functionalities" [value]="value">
+           {{getFuncName(value)}}
+          </mat-option>
+          
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
         <mat-label>Expected finish date</mat-label>
         <input matInput formControlName="ExpTime" for="ExpTime" [matDatepicker]="picker">
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>

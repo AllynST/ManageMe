@@ -1,1 +1,20 @@
-<p>kanban-board works!</p>
+<h2 class="text-4xl text-blue m-5">Kanban board</h2>
+<hr class="opacity-20 p-5 m-5">
+<div class="flex gap-5">
+
+
+    <div id="todoColumn" class="bg-blue p-5 rounded flex flex-col gap-5">
+        <h2 class="text-white text-2xl">todo</h2>
+        <app-kanban-card [task]="task" *ngFor="let task of todoTasks!"></app-kanban-card>
+    </div>
+    <div id="doingColumn" class="bg-blue p-5 rounded flex flex-col gap-5">
+        <h2 class="text-white text-2xl">doing</h2>
+        <app-kanban-card [task]="task" *ngFor="let task of doingTasks!"></app-kanban-card>
+    </div>
+    <div id="doneColumn" class="bg-blue p-5 rounded flex flex-col gap-5">        
+        <h2 class="text-white text-2xl">done</h2>
+        <app-kanban-card [task]="task" *ngFor="let task of doneTasks!"></app-kanban-card>
+    </div>
+
+
+</div>

@@ -2,7 +2,7 @@ export interface Project {
    id:number,
    Name:string,
    Desc:string,
-   functionalities?:Functionality[],
+   functionalities?:number[],
    createdBy:number
    MembersID:number[]
 }
@@ -20,16 +20,19 @@ export interface User{
 
 export interface Functionality{
   id:number,
+  ProjectID:number,
   Name:string,
   Desc:string,
   Priority:Priority,
   Owner:number,
   State:State,
-  Tasks:Task[]
+  Tasks:number[]
 }
 
 export interface Task{
   id:number,
+  funcID:number,
+  ProjectID:number,
   Name:string,
   Desc:string,
   Priority:Priority,
@@ -39,7 +42,7 @@ export interface Task{
   StartDate:Date|null,
   FinishDate:Date|null,
   OwnerID:number| null
-  AssignedID:number[]
+  AssignedID:number | null
 
 }
 

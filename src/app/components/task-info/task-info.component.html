@@ -1,0 +1,93 @@
+<hr class="opacity-20 p-5">
+
+
+
+
+
+    <form action="" class="flex-col gap-20" [formGroup] = "taskForm">
+        <div class="w-full flex gap-5">
+            <mat-form-field>
+                <mat-label>Expected finish date</mat-label>
+                <input matInput formControlName="ExpTime" for="ExpTime" [matDatepicker]="ExpTimePicker">
+                <mat-datepicker-toggle matIconSuffix [for]="ExpTimePicker" value="task.ExpTime"></mat-datepicker-toggle>
+                <mat-datepicker #ExpTimePicker></mat-datepicker>
+            </mat-form-field>
+                <mat-form-field>
+                <mat-label>Added date</mat-label>
+                <input matInput formControlName="AddedDate" for="AddedDate" [matDatepicker]="AddDatePicker">
+                <mat-datepicker-toggle matIconSuffix [for]="AddDatePicker" value="task.AddedDate"></mat-datepicker-toggle>
+                <mat-datepicker  #AddDatePicker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Start date</mat-label>
+                <input matInput formControlName="StartDate" for="StartDate" [matDatepicker]="StartDatePicker">
+                <mat-datepicker-toggle matIconSuffix [for]="StartDatePicker" value="task.StartDate"></mat-datepicker-toggle>
+                <mat-datepicker #StartDatePicker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Finish date</mat-label>
+                <input matInput formControlName="FinishDate" for="FinishDate" [matDatepicker]="FinishDatePicker">
+                <mat-datepicker-toggle matIconSuffix [for]="FinishDatePicker" value="task.FinishDate"></mat-datepicker-toggle>
+                <mat-datepicker #FinishDatePicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+            <div class="w-full">
+                <mat-form-field class="w-full">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput
+                              cdkTextareaAutosize
+                              formControlName="Desc"
+                              #autosize="cdkTextareaAutosize"
+                              cdkAutosizeMinRows="5"
+                              cdkAutosizeMaxRows="5"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="w-full gap-15 flex-col items-center justify-around ">
+                <mat-form-field>
+                    <mat-label>Priority</mat-label>
+                    <mat-select formControlName="Priority" for="Priority">
+                      <mat-option  *ngFor="let value of selectFields" [value]="value">
+                       {{value}}
+                      </mat-option>
+                      
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>State</mat-label>
+                    <mat-select formControlName="State" [value]="task.State" for="State">
+                      <mat-option value = "0">
+                        todo
+                      </mat-option>
+                      <mat-option value = "1">
+                        doing
+                      </mat-option>
+                      <mat-option value = "2">
+                        done
+                      </mat-option>
+                     
+                      
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            
+      
+
+        <mat-form-field>
+            <mat-label>Assigned</mat-label>
+            <mat-select formControlName="AssignedID" for="AssignedID">
+              <mat-option  *ngFor="let user of (users$ | async)" [value]="user.id">
+               {{user.Login}}
+              </mat-option>
+              
+            </mat-select>
+        </mat-form-field>
+
+        <button (click)="submitHandler()" class="bg-blue gap-2 px-4 py-2 text-white rounded flex items-center">
+            <mat-icon>lock</mat-icon>
+            Save
+        </button>
+
+    </form>
+

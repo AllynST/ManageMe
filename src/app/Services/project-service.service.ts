@@ -16,16 +16,16 @@ export class ProjectService {
       id:1,
       Name:'Mentor Me',
       Desc:'HackatonProject sheep your hack',
-      functionalities:[...sampleFunc],
+      functionalities:[1,2,3],
       createdBy:0,
-      MembersID:[0],
+      MembersID:[0,1],
 
     },
     {
       id:2,
       Name:'Microsoft',
       Desc:'Oposite of Hugehard',
-      functionalities:[...sampleFunc],
+      functionalities:[1,2,3],
       createdBy:0,
       MembersID:[0],
 
@@ -53,6 +53,15 @@ export class ProjectService {
     let temp = this.projects.getValue()
     temp.push(project)
     this.projects.next(temp)
+  }
+
+  addFunc(projectID:number,funcID:number){
+    let temp = this.projects.getValue()
+    let targetIndex = temp.findIndex(proj=>proj.id === projectID)
+    temp[targetIndex].functionalities?.push(funcID)
+    temp.splice(temp.findIndex((project:Project)=> projectID === project.id),1,temp[targetIndex])
+    this.projects.next(temp)
+ 
   }
 
   updateProject(projectID:number, project:Project){
