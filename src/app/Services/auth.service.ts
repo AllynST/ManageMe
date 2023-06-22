@@ -21,6 +21,8 @@ export class AuthService {
       Permission: Permissions.admin
     }
   )
+  private isLogged:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+  private isLogged$ = this.isLogged.asObservable()
   currentUser$ = this.currentUser as Observable<User|null>
 
   constructor(private userService:UserService) {    
@@ -28,6 +30,10 @@ export class AuthService {
 
   getCurrentUser(){
     return this.currentUser$
+  }
+
+  isUserLogged(){
+    return this.isLogged$
   }
 
   getCurrentUserID():number{
@@ -44,7 +50,8 @@ export class AuthService {
       let targetUser = val.find((user:User)=>user.Login === login)
       if(targetUser && targetUser.Password === password){
         this.currentUser.next(targetUser)
-        outcome = true;      
+        outcome = true;
+        this.isLogged.next(true);      
       }
     })
     return outcome;
@@ -57,6 +64,7 @@ export class AuthService {
 
   logout = () =>{
     this.currentUser.next(null)
+    this.isLogged.next(false);     
   }
 
 }

@@ -11,22 +11,23 @@ import { ProjectFuncComponent } from './views/project-func/project-func.componen
 import { AccountComponent } from './views/account/account.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+import { AuthGuard } from 'src/guards/auth.guard';
 
 
 const routes: Routes = [
   // {path:'',component:HomeScreenComponent},
 
-  {path:'Home',component:HomeScreenComponent},
+  {path:'Home',component:HomeScreenComponent, canActivate:[AuthGuard]},
   {path:'',component:LoginComponent},
   {path:'Register',component:RegisterComponent},
-  {path:'Projets',component:ProjectsComponent},
-  {path:'ProjectFunc/:id',component:ProjectFuncComponent},
-  {path:'Account/:id',component:AccountComponent},
-  {path:'ProjectHome/:id',component:ProjectHomeComponent},
-  {path:'KanbanBoard/:id',component:KanbanBoardComponent},
-  {path:'ProjectMembers/:id',component:ProjectMembersComponent},
-  {path:'AuditLog',component:AuditLogComponent},
-  {path:'Archive',component:ArchiveComponent},
+  {path:'Projets',component:ProjectsComponent, canActivate:[AuthGuard]},
+  {path:'ProjectFunc/:id',component:ProjectFuncComponent, canActivate:[AuthGuard]},
+  {path:'Account/:id',component:AccountComponent, canActivate:[AuthGuard]},
+  {path:'ProjectHome/:id',component:ProjectHomeComponent, canActivate:[AuthGuard]},
+  {path:'KanbanBoard/:id',component:KanbanBoardComponent, canActivate:[AuthGuard]},
+  {path:'ProjectMembers/:id',component:ProjectMembersComponent, canActivate:[AuthGuard]},
+  {path:'AuditLog',component:AuditLogComponent, canActivate:[AuthGuard]},
+  {path:'Archive',component:ArchiveComponent, canActivate:[AuthGuard]},
 ];
 
 
